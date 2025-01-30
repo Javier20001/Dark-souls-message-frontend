@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import getMessages from "../services/MessageService";
+import getMessages from "../services/messageService";
 
 const Message = () => {
   const [message, setMessage] = useState("");
@@ -34,7 +34,7 @@ const Message = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        color: "#9f0000",
+        color: "red",
       }}
     >
       {message && (
@@ -42,7 +42,7 @@ const Message = () => {
           initial={{ opacity: 0 }} // Inicia completamente transparente
           animate={{ opacity: 1 }} // Se vuelve completamente visible
           transition={{ duration: 2, ease: "easeInOut" }} // Aparece en 2 segundos de forma suave
-          style={{ fontSize: "140px", textAlign: "center" }}
+          style={{ fontSize: "24px", textAlign: "center" }}
         >
           {message}
         </motion.h2>
