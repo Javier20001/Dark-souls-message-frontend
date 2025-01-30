@@ -39,7 +39,7 @@ const Message = () => {
       }}
     >
       {message && <h2 className="message-animation">{message}</h2>}
-      <Solaire />
+      {message === "Praise the Sun!" && <Solaire />}
     </div>
   );
 };
