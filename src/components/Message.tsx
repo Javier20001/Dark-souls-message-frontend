@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import getMessages from "../services/messageService";
 import Solaire from "./solaire";
+import "./message.css"; // Importamos el archivo CSS
 
 const Message = () => {
   const [message, setMessage] = useState("");
@@ -30,6 +30,7 @@ const Message = () => {
 
   return (
     <div
+      className="message"
       style={{
         display: "flex",
         justifyContent: "center",
@@ -37,18 +38,8 @@ const Message = () => {
         color: "#970000",
       }}
     >
-      {message && (
-        <motion.h2
-          initial={{ opacity: 0 }} // Inicia completamente transparente
-          animate={{ opacity: 1 }} // Se vuelve completamente visible
-          transition={{ duration: 2, ease: "easeInOut" }} // Aparece en 2 segundos de forma suave
-          style={{ fontSize: "90px", textAlign: "center" }}
-        >
-          {message}
-        </motion.h2>
-      )}
-
-      {message === "Praise the Sun!" && <Solaire />}
+      {message && <h2 className="message-animation">{message}</h2>}
+      <Solaire />
     </div>
   );
 };

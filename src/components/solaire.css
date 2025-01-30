@@ -1,8 +1,13 @@
 .solaire-animation {
+  display: flex;
   position: absolute;
   bottom: 0;
   right: 0;
   animation: moveIn 1.5s ease-out forwards;
+}
+
+.solaire-animation img {
+  width: 400px;
 }
 
 @keyframes moveIn {
@@ -13,5 +18,17 @@
   to {
     transform: translate(0, 0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .solaire-animation img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .solaire-animation img {
+    width: 200px; /* Ajuste adicional para pantallas más pequeñas */
   }
 }

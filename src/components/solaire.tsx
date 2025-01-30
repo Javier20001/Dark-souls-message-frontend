@@ -5,7 +5,7 @@ import "./solaire.css"; // Importamos el archivo CSS
 const Solaire = () => {
   return (
     <div className="solaire-animation">
-      <img src={logo} alt="Solaire" width="400" />
+      <img src={logo} alt="Solaire" style={{ display: "flex" }} />
     </div>
   );
 };
