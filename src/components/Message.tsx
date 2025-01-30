@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import getMessages from "../services/messageService";
+import Solaire from "./solaire";
 
 const Message = () => {
   const [message, setMessage] = useState("");
@@ -33,7 +34,6 @@ const Message = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
         color: "#970000",
       }}
     >
@@ -47,6 +47,8 @@ const Message = () => {
           {message}
         </motion.h2>
       )}
+
+      {message === "Praise the Sun!" && <Solaire />}
     </div>
   );
 };
