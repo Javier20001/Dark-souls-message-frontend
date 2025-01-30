@@ -34,7 +34,7 @@ const Message = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        color: "red",
+        color: "#970000",
       }}
     >
       {message && (
@@ -42,7 +42,7 @@ const Message = () => {
           initial={{ opacity: 0 }} // Inicia completamente transparente
           animate={{ opacity: 1 }} // Se vuelve completamente visible
           transition={{ duration: 2, ease: "easeInOut" }} // Aparece en 2 segundos de forma suave
-          style={{ fontSize: "24px", textAlign: "center" }}
+          style={{ fontSize: "140px", textAlign: "center" }}
         >
           {message}
         </motion.h2>
