@@ -16,6 +16,7 @@ const rateMessage = async (messageId: string, rating: number) => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          CallerId: localStorage.getItem("userId") || "unknown", // ✅ Corregido
         },
         body: JSON.stringify({
           rate: rating,
