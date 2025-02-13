@@ -11,7 +11,7 @@ const getMessages = async () => {
 const rateMessage = async (messageId: string, rating: number) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/rate-message/${messageId}`,
+      `https://dark-souls-random-message.vercel.app/rate-message/${messageId}`,
       {
         method: "PATCH",
         headers: {
