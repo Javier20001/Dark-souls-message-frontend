@@ -1,5 +1,6 @@
 import React from "react";
 import { rateMessage } from "../services/messageService";
+import "./rating.css";
 
 interface RatingProps {
   id_message: string;
@@ -15,7 +16,7 @@ const Rating: React.FC<RatingProps> = ({ id_message }) => {
   };
 
   return (
-    <div>
+    <div className="rating">
       <button onClick={handleLike}>vote up</button>
       <button onClick={handleDislike}>vote down</button>
     </div>

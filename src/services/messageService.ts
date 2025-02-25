@@ -10,13 +10,14 @@ const getMessages = async () => {
 // cambiar la ip por un id autogenereado y guardarlo en local storage
 const rateMessage = async (messageId: string, rating: number) => {
   try {
+    console.log(localStorage.getItem("userId"));
     const response = await fetch(
       `https://dark-souls-random-message.vercel.app/rate-message/${messageId}`,
       {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          CallerId: localStorage.getItem("userId") || "unknown", // ✅ Corregido
+          CallerId: localStorage.getItem("userId") || "", // ✅ Corregido
         },
         body: JSON.stringify({
           rate: rating,

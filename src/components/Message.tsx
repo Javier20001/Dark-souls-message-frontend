@@ -3,10 +3,12 @@ import { getMessages } from "../services/messageService";
 import Solaire from "./solaire";
 import Rating from "./Rating";
 import "./message.css"; // Importamos el archivo CSS
+import RatingScoreIcon from "./RatingScoreIcon";
 
 const Message = () => {
   const [message, setMessage] = useState("");
   const [id_message, setIdMessage] = useState("");
+  const [rate, setRate] = useState(0);
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -23,6 +25,7 @@ const Message = () => {
         const data = await response.json();
         setMessage(data.text);
         setIdMessage(data._id);
+        setRate(data.averageRate);
       } else {
         setMessage("Error al cargar el mensaje");
       }
@@ -32,18 +35,15 @@ const Message = () => {
   }, []);
 
   return (
-    <div
-      className="message"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "#970000",
-      }}
-    >
-      {message && <h2 className="message-animation">{message}</h2>}
-      <Rating id_message={id_message} />
-      {message === "Praise the Sun!" && <Solaire />}
+    <div className="message-container">
+      <div className="message-background"></div>
+      <div className="message">
+        {rate && <RatingScoreIcon score={rate} />}
+        {message && <h2 className="message-animation">{message}</h2>}
+        {rate && <h2 className="message-animation">{rate}</h2>}
+        <Rating id_message={id_message} />
+        {message === "Praise the Sun!" && <Solaire />}
+      </div>
     </div>
   );
 };
