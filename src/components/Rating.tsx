@@ -1,6 +1,6 @@
 import React from "react";
 import { rateMessage } from "../services/messageService";
-import "./rating.css";
+import "./Rating.css";
 
 interface RatingProps {
   id_message: string;
