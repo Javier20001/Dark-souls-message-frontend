@@ -1,16 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 
 const getMessages = async () => {
-  const response = await fetch(
-    "https://dark-souls-random-message.vercel.app/last-message"
-  );
+  const response = await fetch("http://localhost:3000/last-message");
   return response;
 };
 
 // cambiar la ip por un id autogenereado y guardarlo en local storage
 const rateMessage = async (messageId: string, rating: number) => {
   try {
-    console.log(localStorage.getItem("userId"));
     const response = await fetch(
       `https://dark-souls-random-message.vercel.app/rate-message/${messageId}`,
       {
@@ -37,10 +34,16 @@ const rateMessage = async (messageId: string, rating: number) => {
       }
     }
 
-    return response;
+    const responseData = await response.json();
+    if (responseData.message === "Rated successfully") {
+      alert(responseData.message);
+    }
+
+    return responseData.message;
   } catch (error) {
     if (error instanceof Error) {
       alert(`Error: ${error.message}`);
+      return error.message;
     } else {
       alert(`Error: ${String(error)}`);
     }

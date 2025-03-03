@@ -5,6 +5,12 @@
   position: relative; /* Asegura que los elementos hijos se posicionen correctamente */
 }
 
+.message-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .message-background {
   position: absolute; /* Posiciona el fondo detrás del contenido */
   width: 100%;
@@ -27,12 +33,27 @@
   flex: 1;
 }
 
-.message-animation {
+.message-text {
+  margin: 0px;
   font-size: 30px;
   text-align: center;
-  opacity: 0;
   padding: 0px 10px 0px 10px;
+}
+
+.animation {
+  opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
+}
+
+.message-rate {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.message-rate p {
+  margin: 0px;
+  font-size: 20px;
 }
 
 @keyframes fadeIn {

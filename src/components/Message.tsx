@@ -7,7 +7,8 @@ import RatingScoreIcon from "./RatingScoreIcon";
 
 const Message = () => {
   const [message, setMessage] = useState("");
-  const [id_message, setIdMessage] = useState("");
+  const [idMessage, setIdMessage] = useState("");
+  const [alreadyRated, setAlreadyRated] = useState(false);
   const [rate, setRate] = useState(0);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Message = () => {
         const data = await response.json();
         setMessage(data.text);
         setIdMessage(data._id);
-        setRate(data.averageRate);
+        setRate(data.totalRates);
       } else {
         setMessage("Error al cargar el mensaje");
       }
@@ -39,9 +40,23 @@ const Message = () => {
       <div className="message-background"></div>
       <div className="message">
         {rate && <RatingScoreIcon score={rate} />}
-        {message && <h2 className="message-animation">{message}</h2>}
-        {rate && <h2 className="message-animation">{rate}</h2>}
-        <Rating id_message={id_message} />
+        <div className="message-content">
+          {message && <h2 className="message-text animation">{message}</h2>}
+          <div className="message-rate">
+            <p className="animation">Rating </p>
+            {rate && <h3 className="message-text animation">{rate}</h3>}
+          </div>
+        </div>
+        {alreadyRated ? (
+          <h3 style={{ padding: "0px 20px" }}>thanks for vote</h3>
+        ) : (
+          <Rating
+            id_message={idMessage}
+            rate={rate}
+            setRate={setRate}
+            setAlreadyRated={setAlreadyRated}
+          />
+        )}
         {message === "Praise the Sun!" && <Solaire />}
       </div>
     </div>
