@@ -16,7 +16,10 @@ const logos = [logo1, logo2, logo3, logo4, logo5];
 const RatingScoreIcon: React.FC<RatingScoreIconProps> = ({ score }) => {
   const iconURL = useMemo(() => {
     // Convierte el score en un índice de 0 a 4
-    const index = Math.min(Math.floor(score / 50), logos.length - 1);
+    const index = Math.max(
+      0,
+      Math.min(Math.floor(score / 50), logos.length - 1)
+    );
     return logos[index];
   }, [score]);
 

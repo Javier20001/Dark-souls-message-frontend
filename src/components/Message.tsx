@@ -36,35 +36,37 @@ const Message = () => {
   }, []);
 
   return (
-    <div className="message-container">
-      {message ? (
-        <>
-          <div className="message-background"></div>
-          <div className="message">
-            {rate && <RatingScoreIcon score={rate} />}
-            <div className="message-content">
-              {message && <h2 className="message-text animation">{message}</h2>}
-              <div className="message-rate">
-                <p className="animation">Rating </p>
-                {rate && <h3 className="message-text animation">{rate}</h3>}
+    <div>
+      <div className="message-container">
+        {message ? (
+          <>
+            <div className="message-background"></div>
+            <div className="message">
+              <RatingScoreIcon score={rate} />
+              <div className="message-content">
+                <h2 className="message-text animation">{message}</h2>
+                <div className="message-rate">
+                  <p className="animation">Rating </p>
+                  <h3 className="message-text animation">{rate}</h3>
+                </div>
               </div>
+              {alreadyRated ? (
+                <h3 style={{ padding: "0px 20px" }}>thanks for vote</h3>
+              ) : (
+                <Rating
+                  id_message={idMessage}
+                  rate={rate}
+                  setRate={setRate}
+                  setAlreadyRated={setAlreadyRated}
+                />
+              )}
             </div>
-            {alreadyRated ? (
-              <h3 style={{ padding: "0px 20px" }}>thanks for vote</h3>
-            ) : (
-              <Rating
-                id_message={idMessage}
-                rate={rate}
-                setRate={setRate}
-                setAlreadyRated={setAlreadyRated}
-              />
-            )}
-            {message === "Praise the Sun!" && <Solaire />}
-          </div>
-        </>
-      ) : (
-        <p></p>
-      )}
+          </>
+        ) : (
+          <p></p>
+        )}
+      </div>
+      <div>{message === "Praise the Sun!" && <Solaire />}</div>
     </div>
   );
 };
