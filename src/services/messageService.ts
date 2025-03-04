@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 
 const getMessages = async () => {
-  const response = await fetch("http://localhost:3000/last-message");
+  const response = await fetch(
+    "https://dark-souls-random-message.vercel.app/last-message"
+  );
   return response;
 };
 
