@@ -1,13 +1,12 @@
 import "./App.css";
 import Message from "./components/Message";
-import videoSrc from "./assets/background_video.mp4";
+import videoSrc from "./assets/background_video.gif";
 
 function App() {
   return (
-    <>
-      <video className="video-background" src={videoSrc} autoPlay loop muted />
+    <div className="app-container">
       <Message />
-    </>
+    </div>
   );
 }
 

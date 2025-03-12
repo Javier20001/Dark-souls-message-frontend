@@ -67,3 +67,22 @@
     font-size: 20px; /* Ajuste adicional para pantallas más pequeñas */
   }
 }
+
+@media screen and (max-width: 768px) {
+  .message {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fdfdfd;
+    z-index: 1;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
